@@ -9,7 +9,7 @@ import android.content.Context;
 public final class Daily {
     public static Configurator init(Context context){
         getConfigurator().getDailyConfigs()
-                .put(ConfigType.APPLICATION_CONTEXT,context.getApplicationContext());
+                .put(ConfigKeys.APPLICATION_CONTEXT,context.getApplicationContext());
          return Configurator.getInstance();
     }
 

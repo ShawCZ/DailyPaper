@@ -16,7 +16,7 @@ public class Configurator {
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
 
     private Configurator() {
-        DAILY_CONFIGS.put(ConfigType.CONFIG_READY, false);
+        DAILY_CONFIGS.put(ConfigKeys.CONFIG_READY, false);
     }
 
     private static class Holder {
@@ -29,7 +29,7 @@ public class Configurator {
 
     public final void configure() {
         initIcons();
-        DAILY_CONFIGS.put(ConfigType.CONFIG_READY, true);
+        DAILY_CONFIGS.put(ConfigKeys.CONFIG_READY, true);
     }
 
     final HashMap<Object, Object> getDailyConfigs() {
@@ -37,7 +37,7 @@ public class Configurator {
     }
 
     public final Configurator withApiHost(String host) {
-        DAILY_CONFIGS.put(ConfigType.API_HOST, host);
+        DAILY_CONFIGS.put(ConfigKeys.API_HOST, host);
         return this;
     }
 
@@ -56,7 +56,7 @@ public class Configurator {
     }
 
     private void checkConfiguration() {
-        final boolean isReady = (boolean) DAILY_CONFIGS.get(ConfigType.CONFIG_READY);
+        final boolean isReady = (boolean) DAILY_CONFIGS.get(ConfigKeys.CONFIG_READY);
         if (!isReady) {
             throw new RuntimeException("Configuration is not already,call configure");
         }

@@ -1,13 +1,12 @@
 package com.shaw.dailypaper;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import com.shaw.daily.activitys.ProxyActivity;
+import com.shaw.daily.delegates.DailyDelegate;
 
-public class DailyActivity extends AppCompatActivity {
+public class DailyActivity extends ProxyActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daily);
+    public DailyDelegate setRootDelegate() {
+        return new ExampleDelegate();
     }
 }
