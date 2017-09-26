@@ -6,6 +6,7 @@ import android.app.Application;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.shaw.daily.app.Daily;
 import com.shaw.daily.dp.icon.FontDPModule;
+import com.shaw.daily.net.interceptors.DebugInterceptor;
 
 /**
  * Created by shaw
@@ -19,6 +20,7 @@ public class DailyApp extends Application {
         Daily.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontDPModule())
+                .withInterceptor(new DebugInterceptor("text",R.raw.oeder_list))
                 .withApiHost("http://127.0.0.1/")
                 .configure();
     }

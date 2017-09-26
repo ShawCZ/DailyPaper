@@ -9,5 +9,6 @@ public enum ConfigKeys {
     APPLICATION_CONTEXT,
     CONFIG_READY,
     ICON,
-    ACTIVITY
+    ACTIVITY,
+    INTERCEPTOR
 }

@@ -21,5 +21,9 @@ public final class Daily {
         return getConfigurator().getConfiguration(key);
     }
 
+    //获取全局Context
+    public static Context getApplicationContext() {
+        return getConfiguration(ConfigKeys.APPLICATION_CONTEXT);
+    }
 
 }
