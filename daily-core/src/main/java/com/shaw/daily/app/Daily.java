@@ -1,6 +1,7 @@
 package com.shaw.daily.app;
 
 import android.content.Context;
+import android.os.Handler;
 
 /**
  * Created by shaw
@@ -24,6 +25,11 @@ public final class Daily {
     //获取全局Context
     public static Context getApplicationContext() {
         return getConfiguration(ConfigKeys.APPLICATION_CONTEXT);
+    }
+
+    //获取全局Handler
+    public static Handler getHandler() {
+        return getConfiguration(ConfigKeys.HANDLER);
     }
 
 }

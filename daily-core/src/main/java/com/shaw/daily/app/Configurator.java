@@ -1,5 +1,7 @@
 package com.shaw.daily.app;
 
+import android.os.Handler;
+
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
@@ -17,9 +19,11 @@ public class Configurator {
     private static final HashMap<Object, Object> DAILY_CONFIGS = new HashMap<>();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
     private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
+    private static final Handler HANDLER = new Handler();
 
     private Configurator() {
         DAILY_CONFIGS.put(ConfigKeys.CONFIG_READY, false);
+        DAILY_CONFIGS.put(ConfigKeys.HANDLER, HANDLER);
     }
 
     private static class Holder {

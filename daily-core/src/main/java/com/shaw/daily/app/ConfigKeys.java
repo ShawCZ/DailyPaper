@@ -10,5 +10,6 @@ public enum ConfigKeys {
     CONFIG_READY,
     ICON,
     ACTIVITY,
-    INTERCEPTOR
+    INTERCEPTOR,
+    HANDLER
 }

@@ -20,8 +20,8 @@ public class DailyApp extends Application {
         Daily.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontDPModule())
-                .withInterceptor(new DebugInterceptor("text",R.raw.oeder_list))
-                .withApiHost("http://127.0.0.1/")
+                .withInterceptor(new DebugInterceptor("text",R.raw.latest))
+                .withApiHost("http://news-at.zhihu.com/api/4/")
                 .configure();
     }
 }
