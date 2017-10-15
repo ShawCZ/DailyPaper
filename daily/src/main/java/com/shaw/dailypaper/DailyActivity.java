@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBar;
 
 import com.shaw.daily.activitys.ProxyActivity;
 import com.shaw.daily.delegates.DailyDelegate;
-import com.shaw.daily.dp.launcher.LauncherScrollDelegate;
 import com.shaw.daily.dp.main.index.IndexDelegate;
 
 public class DailyActivity extends ProxyActivity {

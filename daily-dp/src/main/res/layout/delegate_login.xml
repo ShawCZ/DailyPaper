@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/icon_login_back"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:gravity="center|left"
+                android:paddingLeft="6dp"
+                android:text="{fa-angle-left}"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="25sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="登陆"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:text="知乎日报"
+        android:textColor="@android:color/white"
+        android:textSize="40sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/login_in_zhihu"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/login_style"
+        android:gravity="center"
+        android:text="知乎账号登陆"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_in_zhihu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="或使用微博登陆"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/login_in_sina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hint"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/account_sina" />
+
+    <ImageView
+        android:id="@+id/login_in_tencent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hint"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/login_in_sina"
+        android:src="@drawable/account_tencent" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="知乎日报不会未经同意通过你的微博账号发布任何信息"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp" />
+</RelativeLayout>

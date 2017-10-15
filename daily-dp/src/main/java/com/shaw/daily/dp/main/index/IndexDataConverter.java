@@ -1,6 +1,5 @@
 package com.shaw.daily.dp.main.index;
 
-import android.annotation.SuppressLint;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -12,9 +11,11 @@ import com.shaw.daily.ui.recycler.DataConverter;
 import com.shaw.daily.ui.recycler.ItemType;
 import com.shaw.daily.ui.recycler.MultipleFields;
 import com.shaw.daily.ui.recycler.MultipleItemEntity;
+import com.shaw.daily.util.date.CurrentDateUitl;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by shaw
@@ -22,25 +23,17 @@ import java.util.ArrayList;
 
 public class IndexDataConverter extends DataConverter {
 
-//    @SuppressLint("SimpleDateFormat")
-//    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-//    String date = sdf.format(new java.util.Date());
-
     @Override
     public ArrayList<MultipleItemEntity> convert() {
 
-        final String storyDate = JSON.parseObject(getJsonData()).getString("date");
-        final MultipleItemEntity entity = MultipleItemEntity.builder()
-                .setItemType(ItemType.DATE)
-                .setField(MultipleFields.DATE, storyDate)
-                .build();
-        ENTITYS.add(entity);
-
-        //取出当天的新闻轮播图
-        //storyDate.equals(date)
-        if (true) {
-            ENTITYS.remove(0);
-            Log.d("今天的日报", storyDate);
+        if (JSON.parseObject(getJsonData()).getJSONArray("top_stories") == null || JSON.parseObject(getJsonData()).getJSONArray("top_stories").equals("")) {
+            final String storyDate = JSON.parseObject(getJsonData()).getString("date");
+            final MultipleItemEntity entity = MultipleItemEntity.builder()
+                    .setItemType(ItemType.DATE)
+                    .setField(MultipleFields.DATE, storyDate)
+                    .build();
+            ENTITYS.add(entity);
+        } else {
             final JSONArray dataArray = JSON.parseObject(getJsonData()).getJSONArray("top_stories");
             final int size = dataArray.size();
 
@@ -77,7 +70,6 @@ public class IndexDataConverter extends DataConverter {
 
             final int id = data.getInteger("id");
             final String title = data.getString("title");
-
             final JSONArray images = data.getJSONArray("images");
             final String imageUrl = images.getString(0);
 

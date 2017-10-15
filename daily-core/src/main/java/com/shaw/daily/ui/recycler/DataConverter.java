@@ -25,4 +25,12 @@ public abstract class DataConverter {
         return mJsonData;
     }
 
+    public ArrayList<MultipleItemEntity> getEntities(){
+        return ENTITYS;
+    }
+
+    public void clearData(){
+        ENTITYS.clear();
+    }
+
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal">
+
+    <com.joanzapata.iconify.widget.IconTextView
+        android:id="@+id/item_theme_home"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="{icon-home}"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="30sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/item_theme_add"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="4"
+        android:gravity="center|left"
+        android:text="首页"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp" />
+
+    <com.joanzapata.iconify.widget.IconTextView
+        android:id="@+id/item_theme_arrow"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="{fa-angle-right}"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp" />
+
+</LinearLayout>

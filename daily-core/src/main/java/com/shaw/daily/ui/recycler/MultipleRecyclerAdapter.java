@@ -1,10 +1,11 @@
 package com.shaw.daily.ui.recycler;
 
+import android.support.annotation.Nullable;
+import android.support.transition.Visibility;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
@@ -13,11 +14,12 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.shaw.daily.R;
-import com.shaw.daily.app.Daily;
 import com.shaw.daily.ui.banner.BannerCreator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by shaw
@@ -25,17 +27,24 @@ import java.util.List;
 
 public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleItemEntity, MultipleViewHolder> implements OnItemClickListener, ViewPager.OnPageChangeListener {
 
+
     //确保初始化一次Banner，防止重复Item加载
     private boolean mIsInitBanner = false;
 
-    ConvenientBanner<String> convenientBanner;
+    private ConvenientBanner<String> convenientBanner;
 
-    String title;
-    String imageUrl;
-    ArrayList<String> bannerImages;
-    ArrayList<String> bannerTitles;
-    String date;
+    private String title;
+    private String imageUrl;
+    private ArrayList<String> bannerImages;
+    private ArrayList<String> bannerTitles;
+    private String date;
 
+    //存放日期
+    private Map<Integer, String> keys = new HashMap<>();
+
+    public Map<Integer, String> getKeys() {
+        return keys;
+    }
 
     //设置图片加载策略
     private static final RequestOptions RECYCLER_OPTIONS =
@@ -47,6 +56,9 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
     public MultipleRecyclerAdapter(List<MultipleItemEntity> data) {
         super(data);
         init();
+
+        keys.put(0,"今日新闻");
+
     }
 
     public static MultipleRecyclerAdapter create(List<MultipleItemEntity> data) {
@@ -80,17 +92,19 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
 
         switch (holder.getItemViewType()) {
             case ItemType.DATE:
-                date = entity.getField(MultipleFields.DATE);
-                holder.setText(R.id.tv_date, date);
-                break;
+//                date = entity.getField(MultipleFields.DATE);
+//                holder.setText(R.id.tv_date, date);
+               break;
             case ItemType.STORY_LIST:
                 title = entity.getField(MultipleFields.TITLE);
                 imageUrl = entity.getField(MultipleFields.IMAGE_URL);
                 holder.setText(R.id.tv_multiple, title);
+
                 Glide.with(mContext)
                         .load(imageUrl)
                         .apply(RECYCLER_OPTIONS)
                         .into((ImageView) holder.getView(R.id.img_multiple));
+
                 break;
             case ItemType.BANNER:
                 if (!mIsInitBanner) {
@@ -98,7 +112,9 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
                     bannerTitles = entity.getField(MultipleFields.TITLE);
                     convenientBanner = holder.getView(R.id.banner_recycler_item);
                     BannerCreator.setDefault(convenientBanner, bannerImages, this);
+                    holder.setText(R.id.banner_title, bannerTitles.get(0));
                     convenientBanner.setOnPageChangeListener(this);
+                    convenientBanner.setOnItemClickListener(this);
                     mHolder = holder;
                 }
                 break;
@@ -109,7 +125,8 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
     }
 
     @Override
-    public void onItemClick(int i) {
+    public void onItemClick(int position) {
+
     }
 
     //动态设置banner标题
@@ -125,4 +142,16 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
     @Override
     public void onPageScrollStateChanged(int state) {
     }
+
+    @Override
+    public void setNewData(@Nullable List<MultipleItemEntity> data) {
+        if (data == null) {
+            this.mData = (List) new ArrayList();
+        } else {
+            this.mData = (List) data;
+        }
+        notifyItemRangeChanged(mData.size() - data.size(), getItemCount());
+    }
+
+
 }

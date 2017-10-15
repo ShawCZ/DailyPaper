@@ -8,8 +8,10 @@ import com.joanzapata.iconify.Icon;
 
 public enum DPIcons implements Icon {
 
-    icon_wei_bo('\ue66b'),
-    icon_we_chat('\ue623');
+    icon_wei_bo('\ue506'),
+    icon_we_chat('\ue60b'),
+    icon_home('\ue606'),
+    icon_download('\ue6a3');
 
     private char character;
 

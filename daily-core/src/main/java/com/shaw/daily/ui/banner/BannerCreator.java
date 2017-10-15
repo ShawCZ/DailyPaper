@@ -24,7 +24,7 @@ public class BannerCreator {
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL)
                 .setOnItemClickListener(clickListener)
                 .setPageTransformer(new DefaultTransformer())
-                .startTurning(3000)
+                .startTurning(5000)
                 .setCanLoop(true);
 
     }

@@ -8,4 +8,5 @@ public class ItemType {
     public static final int DATE = 1;
     public static final int BANNER = 2;
     public static final int STORY_LIST = 3;
+    public static final int THEMES = 4;
 }

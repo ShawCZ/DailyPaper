@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/item_sotry_theme"
+        android:layout_weight="5"
+        android:layout_width="0dp"
+        android:gravity="center_vertical"
+        android:layout_height="match_parent"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/item_theme_add"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:text="+"/>
+
+    <com.joanzapata.iconify.widget.IconTextView
+        android:id="@+id/item_theme_arrow"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="{fa-angle-right}"/>
+
+
+</android.support.v7.widget.LinearLayoutCompat>

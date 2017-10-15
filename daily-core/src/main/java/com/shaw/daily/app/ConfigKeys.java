@@ -11,5 +11,6 @@ public enum ConfigKeys {
     ICON,
     ACTIVITY,
     INTERCEPTOR,
-    HANDLER
+    HANDLER,
+    JAVASCRIPT_INTERFACE
 }

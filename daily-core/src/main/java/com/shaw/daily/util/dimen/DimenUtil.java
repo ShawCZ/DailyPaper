@@ -10,15 +10,19 @@ import com.shaw.daily.app.Daily;
  */
 
 public class DimenUtil {
-    public static int getScreenWidth(){
-        final Resources resources = Daily.getApplicationContext().getResources();
-        final DisplayMetrics dm = resources.getDisplayMetrics();
-        return dm.widthPixels;
+    private static final Resources resources = Daily.getApplicationContext().getResources();
+    private static final DisplayMetrics dm = resources.getDisplayMetrics();
+
+    public static int getScreenWidth() {
+        return (int) (dm.widthPixels/getDensity());
     }
 
-    public static int getScreenHeight(){
-        final Resources resources = Daily.getApplicationContext().getResources();
-        final DisplayMetrics dm = resources.getDisplayMetrics();
-        return dm.heightPixels;
+    public static int getScreenHeight() {
+        return (int) (dm.heightPixels/getDensity());
     }
+
+    private static float getDensity() {
+        return dm.density;
+    }
+
 }
