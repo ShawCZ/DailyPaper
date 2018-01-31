@@ -3,9 +3,7 @@ package com.shaw.daily.dp.main.detial;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -18,9 +16,6 @@ import com.shaw.daily.net.callback.ISuccess;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.util.logging.Logger;
 
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
@@ -29,7 +24,7 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  * Created by shaw on 2017/9/30.
  */
 
-public class DetialDelegate extends DailyDelegate {
+public class DetailDelegate extends DailyDelegate {
 
     private static final String ARG_STORY_ID = "ARG_STORY_ID";
     private int mStoryId = -1;
@@ -37,10 +32,10 @@ public class DetialDelegate extends DailyDelegate {
     private String titleImage;
     private Document document;
 
-    public static DetialDelegate create(int storyId) {
+    public static DetailDelegate create(int storyId) {
         final Bundle args = new Bundle();
         args.putInt("ARG_STORY_ID", storyId);
-        final DetialDelegate delegate = new DetialDelegate();
+        final DetailDelegate delegate = new DetailDelegate();
         delegate.setArguments(args);
         return delegate;
     }

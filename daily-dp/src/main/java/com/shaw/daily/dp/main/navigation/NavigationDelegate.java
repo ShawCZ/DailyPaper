@@ -27,6 +27,7 @@ import butterknife.OnClick;
 
 /**
  * Created by shaw
+ * @author hx
  */
 
 public class NavigationDelegate extends DailyDelegate {

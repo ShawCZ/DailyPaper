@@ -27,6 +27,7 @@ import butterknife.OnClick;
 
 /**
  * Created by shaw
+ * @author hx
  */
 
 public class IndexDelegate extends DailyDelegate {
@@ -46,7 +47,7 @@ public class IndexDelegate extends DailyDelegate {
 
     @OnClick(R2.id.icon_index_menu)
     void onClickNavigation(){
-        mDrawerLayout.openDrawer(Gravity.LEFT);
+        mDrawerLayout.openDrawer(Gravity.START);
     }
 
     private RefreshHandler mRefreshHander = null;

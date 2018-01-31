@@ -81,4 +81,15 @@ public final class DailyPreference {
         return getAppPreference().getString(key, "");
     }
 
+    public static void addThemeId(String key, int val) {
+        getAppPreference()
+                .edit()
+                .putInt(key, val)
+                .apply();
+    }
+
+    public static int getThemeId(String key) {
+        return getAppPreference().getInt(key, 0);
+    }
+
 }

@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.SimpleClickListener;
 import com.shaw.daily.delegates.DailyDelegate;
 import com.shaw.daily.dp.R;
-import com.shaw.daily.dp.main.detial.DetialDelegate;
+import com.shaw.daily.dp.main.detial.DetailDelegate;
 import com.shaw.daily.ui.recycler.MultipleFields;
 import com.shaw.daily.ui.recycler.MultipleItemEntity;
 
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class IndexItemClickListener extends SimpleClickListener {
 
     private final DailyDelegate DELEGATE;
-    private DetialDelegate delegate = null;
+    private DetailDelegate delegate = null;
 
     private IndexItemClickListener(DailyDelegate delegate) {
         DELEGATE = delegate;
@@ -40,17 +40,21 @@ public class IndexItemClickListener extends SimpleClickListener {
                 @SuppressWarnings("unchecked")
                 final ConvenientBanner<String> banner = (ConvenientBanner<String>) baseQuickAdapter.getViewByPosition(0, R.id.banner_recycler_item);
                 final ArrayList<Integer> storyBannerIds = entity.getField(MultipleFields.ID);
-                final int storyBannerId = storyBannerIds.get(banner.getCurrentItem());
-                delegate = DetialDelegate.create(storyBannerId);
+                final int storyBannerId;
+                if (banner != null) {
+                    storyBannerId = storyBannerIds.get(banner.getCurrentItem());
+                    delegate = DetailDelegate.create(storyBannerId);
+                }
                 DELEGATE.getSupportDelegate().start(delegate);
                 break;
             case 3:
                 final int storyId = entity.getField(MultipleFields.ID);
-                delegate = DetialDelegate.create(storyId);
+                delegate = DetailDelegate.create(storyId);
                 DELEGATE.getSupportDelegate().start(delegate);
                 break;
             case 4:
                 final int themeId = entity.getField(MultipleFields.ID);
+
                 break;
             default:
                 break;
