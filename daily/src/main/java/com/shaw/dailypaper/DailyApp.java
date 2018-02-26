@@ -4,6 +4,8 @@ package com.shaw.dailypaper;
 import android.app.Application;
 
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 import com.shaw.daily.app.Daily;
 import com.shaw.daily.dp.icon.FontDPModule;
 import com.shaw.daily.net.interceptors.DebugInterceptor;
@@ -27,5 +29,7 @@ public class DailyApp extends Application {
                 .withWebEvent("test", new TestEvent())
                 .withWebEvent("share", new ShareEvent())
                 .configure();
+
+        Logger.addLogAdapter(new AndroidLogAdapter());
     }
 }

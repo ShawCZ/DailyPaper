@@ -69,4 +69,6 @@ dependencies {
     annotationProcessor "com.google.auto.value:auto-value:1.4.1"
     //html解析
     compile 'org.jsoup:jsoup:1.10.3'
+    //add logger
+    compile 'com.orhanobut:logger:2.1.1'
 }

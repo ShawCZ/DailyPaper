@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.joanzapata.iconify.widget.IconTextView;
+import com.orhanobut.logger.Logger;
 import com.shaw.daily.delegates.DailyDelegate;
 import com.shaw.daily.dp.R;
 import com.shaw.daily.dp.R2;
@@ -67,8 +68,6 @@ public class IndexDelegate extends DailyDelegate {
         mRecyclerView.setLayoutManager(manager);
 //        mRecyclerView.addItemDecoration(BaseDecoration.create(ContextCompat.getColor(getContext(), R.color.app_background), 5));
         mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(this));
-
-
     }
 
     @Override
@@ -96,8 +95,8 @@ public class IndexDelegate extends DailyDelegate {
 
     @Override
     public boolean onBackPressedSupport() {
-        if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)){
-            mDrawerLayout.closeDrawer(Gravity.LEFT);
+        if (mDrawerLayout.isDrawerOpen(Gravity.START)){
+            mDrawerLayout.closeDrawer(Gravity.START);
         }else {
             if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
                 _mActivity.finish();
