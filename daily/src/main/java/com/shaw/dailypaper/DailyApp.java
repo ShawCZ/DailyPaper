@@ -10,11 +10,15 @@ import com.shaw.daily.net.interceptors.DebugInterceptor;
 import com.shaw.dailypaper.event.ShareEvent;
 import com.shaw.dailypaper.event.TestEvent;
 
+import cn.bmob.sms.BmobSMS;
+
 /**
  * Created by shaw
  */
 
 public class DailyApp extends Application {
+
+    public static final String Bmob_Application_ID = "dad3ec5813daf79374356c03c67396ff";
 
     @Override
     public void onCreate() {
@@ -27,5 +31,7 @@ public class DailyApp extends Application {
                 .withWebEvent("test", new TestEvent())
                 .withWebEvent("share", new ShareEvent())
                 .configure();
+
+        BmobSMS.initialize(this, Bmob_Application_ID);
     }
 }

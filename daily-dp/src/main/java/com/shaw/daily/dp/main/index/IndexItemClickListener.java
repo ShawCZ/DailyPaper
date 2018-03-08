@@ -1,5 +1,6 @@
 package com.shaw.daily.dp.main.index;
 
+import android.util.Log;
 import android.view.View;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
@@ -8,6 +9,7 @@ import com.chad.library.adapter.base.listener.SimpleClickListener;
 import com.shaw.daily.delegates.DailyDelegate;
 import com.shaw.daily.dp.R;
 import com.shaw.daily.dp.main.detial.DetailDelegate;
+import com.shaw.daily.dp.main.theme.ThemeListDelegate;
 import com.shaw.daily.ui.recycler.MultipleFields;
 import com.shaw.daily.ui.recycler.MultipleItemEntity;
 
@@ -21,6 +23,7 @@ public class IndexItemClickListener extends SimpleClickListener {
 
     private final DailyDelegate DELEGATE;
     private DetailDelegate delegate = null;
+    private ThemeListDelegate delegateTheme = null;
 
     private IndexItemClickListener(DailyDelegate delegate) {
         DELEGATE = delegate;
@@ -33,6 +36,8 @@ public class IndexItemClickListener extends SimpleClickListener {
     @Override
     public void onItemClick(BaseQuickAdapter baseQuickAdapter, View view, int position) {
         final MultipleItemEntity entity = (MultipleItemEntity) baseQuickAdapter.getData().get(position);
+        Log.d("onItemClick", "entity.getItemType() = "+entity.getItemType());
+
         switch (entity.getItemType()) {
             case 1:
                 break;
@@ -54,7 +59,8 @@ public class IndexItemClickListener extends SimpleClickListener {
                 break;
             case 4:
                 final int themeId = entity.getField(MultipleFields.ID);
-
+                delegateTheme = ThemeListDelegate.create(themeId);
+                DELEGATE.getSupportDelegate().start(delegateTheme);
                 break;
             default:
                 break;

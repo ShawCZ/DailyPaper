@@ -5,9 +5,11 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
 
+    useLibrary 'org.apache.http.legacy'
+
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
 
@@ -31,4 +33,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile project(':daily-core')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    //bmob-sms ：Bmob单独为短信服务提供的包
+    compile 'cn.bmob.android:bmob-sms:1.0.1'
 }

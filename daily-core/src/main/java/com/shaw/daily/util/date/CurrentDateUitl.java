@@ -12,9 +12,9 @@ import java.util.Date;
 
 public class CurrentDateUitl {
 
-    public static final Calendar cal = Calendar.getInstance();
-    public static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-    private static final Date date = new Date();
+    public static Calendar cal = Calendar.getInstance();
+    public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+    private static Date date = new Date();
 
 
     //获取当前日期

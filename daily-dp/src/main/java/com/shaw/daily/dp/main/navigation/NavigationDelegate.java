@@ -1,5 +1,6 @@
 package com.shaw.daily.dp.main.navigation;
 
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.shaw.daily.dp.login.LoginDelegate;
 import com.shaw.daily.dp.main.index.IndexItemClickListener;
 import com.shaw.daily.net.RestClient;
 import com.shaw.daily.net.callback.ISuccess;
+import com.shaw.daily.util.storage.DailyPreference;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -31,6 +33,7 @@ import butterknife.OnClick;
  */
 
 public class NavigationDelegate extends DailyDelegate {
+    private static final String TAG = "NavigationDelegate";
 
     @BindView(R2.id.drawer_user)
     LinearLayoutCompat mDrawerUser = null;
@@ -69,6 +72,7 @@ public class NavigationDelegate extends DailyDelegate {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
+        mDrawerUserName.setText(DailyPreference.getPhoneNumber(LoginDelegate.PHONENUMBER));
         initRecyclerView();
         RestClient.builder()
                 .url("themes")

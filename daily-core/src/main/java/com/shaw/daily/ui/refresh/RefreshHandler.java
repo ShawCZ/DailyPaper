@@ -97,6 +97,7 @@ public class RefreshHandler extends RecyclerView.OnScrollListener implements Swi
          * */
         String date = CurrentDateUitl.getBackDate(dateParams);
         Log.d("数据条数", ADAPTER.getData().size() + "");
+        Log.d("DailyPaper", date);
 
 
         RestClient.builder()

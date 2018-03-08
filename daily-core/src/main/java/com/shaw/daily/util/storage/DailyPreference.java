@@ -92,4 +92,16 @@ public final class DailyPreference {
         return getAppPreference().getInt(key, 0);
     }
 
+    public static void addPhoneNumber(String key, String val) {
+        getAppPreference()
+                .edit()
+                .putString(key, val)
+                .apply();
+    }
+
+    public static String getPhoneNumber(String key) {
+        return getAppPreference().getString(key, "游客");
+    }
+
+
 }
