@@ -17,8 +17,10 @@ import android.widget.Toast;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.orhanobut.logger.Logger;
 import com.shaw.daily.delegates.DailyDelegate;
+import com.shaw.daily.delegates.web.route.Router;
 import com.shaw.daily.dp.R;
 import com.shaw.daily.dp.R2;
+import com.shaw.daily.dp.main.Rotuer;
 import com.shaw.daily.ui.recycler.BaseDecoration;
 import com.shaw.daily.ui.recycler.MultipleRecyclerAdapter;
 import com.shaw.daily.ui.refresh.RefreshHandler;
@@ -78,6 +80,7 @@ public class IndexDelegate extends DailyDelegate {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
         mRefreshHander = new RefreshHandler(mRefreshLayout, new IndexDataConverter(), mRecyclerView,mAdapter);
+        Rotuer.getInstance().setIndexDelegate(this);
     }
 
     @Override

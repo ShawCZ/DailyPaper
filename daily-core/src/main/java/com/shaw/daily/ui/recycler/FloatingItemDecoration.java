@@ -14,6 +14,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -27,6 +28,7 @@ import java.util.Map;
  */
 
 public class FloatingItemDecoration extends RecyclerView.ItemDecoration {
+    private static final String TAG = "FloatingItemDecoration";
 
     private static final int[] ATTRS = new int[]{android.R.attr.listDivider};
     private Drawable mDivider;
@@ -89,6 +91,8 @@ public class FloatingItemDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDraw(c, parent, state);
+        Log.d(TAG,"--onDraw ");
+
         drawVertical(c, parent);
     }
 
@@ -104,12 +108,10 @@ public class FloatingItemDecoration extends RecyclerView.ItemDecoration {
 
             if (!keys.containsKey(params.getViewLayoutPosition())) {
                 //画普通分割线
-                top = child.getTop() - params.topMargin - dividerHeight;
-                bottom = top + dividerHeight;
                 mDivider.setBounds(0, 0, 0, 0);
                 mDivider.draw(canvas);
             } else {
-                //画头部
+                //第一条数据 画头部
                 top = child.getTop() - params.topMargin - mTitleHeight;
                 bottom = top + mTitleHeight;
                 canvas.drawRect(left, top, right, bottom, mBackgroundPaint);
@@ -125,6 +127,8 @@ public class FloatingItemDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDrawOver(c, parent, state);
+        Log.d(TAG,"--onDrawOver ");
+
         if (!showFloatingHeaderOnScrolling) {
             return;
         }
@@ -181,6 +185,7 @@ public class FloatingItemDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
+        Log.d(TAG,"--getItemOffsets ");
         int pos = parent.getChildViewHolder(view).getAdapterPosition();
         if (keys.containsKey(pos)) {
             //留出头部偏移

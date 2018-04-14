@@ -20,7 +20,6 @@ import com.shaw.daily.ui.recycler.MultipleRecyclerAdapter;
 import butterknife.BindView;
 
 /**
- *
  * @author hx
  * @date 2018/2/4
  */
@@ -29,13 +28,13 @@ public class ThemeListDelegate extends DailyDelegate {
 	@BindView(R2.id.rv_theme_list)
 	RecyclerView mRecyclerView = null;
 
-	private LinearLayoutManager manager = new LinearLayoutManager(getContext());
-	private MultipleRecyclerAdapter adapter = new MultipleRecyclerAdapter(null);
+	private LinearLayoutManager manager;
+	private MultipleRecyclerAdapter adapter;
 
-	public static ThemeListDelegate create(int storyId) {
-		final Bundle args = new Bundle();
-		args.putInt("THEME_ID", storyId);
-		final ThemeListDelegate delegate = new ThemeListDelegate();
+	public static ThemeListDelegate create(String storyId) {
+		Bundle args = new Bundle();
+		args.putString("THEME_ID", storyId);
+		ThemeListDelegate delegate = new ThemeListDelegate();
 		delegate.setArguments(args);
 		return delegate;
 	}
@@ -48,13 +47,15 @@ public class ThemeListDelegate extends DailyDelegate {
 	@Override
 	public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
 		mRecyclerView.setAdapter(adapter);
-		int themeId = getArguments().getInt("THEME_ID");
+		String themeId = getArguments().getString("THEME_ID");
 		RestClient.builder()
-				.url("theme/"+themeId)
+				.url("theme/" + themeId)
 				.success(new ISuccess() {
 					@Override
 					public void onSuccess(String response) {
-						Log.d("theme", "response = "+response);
+						Log.d("theme", "response = " + response);
+						adapter = new ThemeListAdapter(new ThemeListDataConverter().setJsonData(response).convert(),ThemeListDelegate.this);
+						mRecyclerView.setAdapter(adapter);
 					}
 				})
 				.build()
@@ -68,6 +69,7 @@ public class ThemeListDelegate extends DailyDelegate {
 	}
 
 	private void initRecyclerView() {
+		manager = new LinearLayoutManager(getContext());
 		mRecyclerView.setLayoutManager(manager);
 		mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(this));
 	}

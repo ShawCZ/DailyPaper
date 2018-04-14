@@ -31,6 +31,7 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:support-v4:26.1.0'
     compile project(':daily-core')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 

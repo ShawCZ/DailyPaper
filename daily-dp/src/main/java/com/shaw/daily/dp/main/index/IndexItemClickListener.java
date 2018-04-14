@@ -1,5 +1,6 @@
 package com.shaw.daily.dp.main.index;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
@@ -8,6 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.SimpleClickListener;
 import com.shaw.daily.delegates.DailyDelegate;
 import com.shaw.daily.dp.R;
+import com.shaw.daily.dp.main.Rotuer;
 import com.shaw.daily.dp.main.detial.DetailDelegate;
 import com.shaw.daily.dp.main.theme.ThemeListDelegate;
 import com.shaw.daily.ui.recycler.MultipleFields;
@@ -58,9 +60,9 @@ public class IndexItemClickListener extends SimpleClickListener {
                 DELEGATE.getSupportDelegate().start(delegate);
                 break;
             case 4:
-                final int themeId = entity.getField(MultipleFields.ID);
-                delegateTheme = ThemeListDelegate.create(themeId);
-                DELEGATE.getSupportDelegate().start(delegateTheme);
+                int themeId = entity.getField(MultipleFields.ID);
+                delegateTheme = ThemeListDelegate.create(String.valueOf(themeId));
+                Rotuer.getInstance().getIndexDelegate().getSupportDelegate().start(delegateTheme);
                 break;
             default:
                 break;
