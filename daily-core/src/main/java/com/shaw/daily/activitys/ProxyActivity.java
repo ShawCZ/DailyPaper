@@ -1,16 +1,12 @@
 package com.shaw.daily.activitys;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ContentFrameLayout;
-import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.ContentFrameLayout;
 
 import com.shaw.daily.R;
-import com.shaw.daily.app.ConfigKeys;
-import com.shaw.daily.app.Daily;
 import com.shaw.daily.delegates.DailyDelegate;
 
 import me.yokeyword.fragmentation.ExtraTransaction;
@@ -87,5 +83,10 @@ public abstract class ProxyActivity extends AppCompatActivity implements ISuppor
     @Override
     public void onBackPressed() {
         DELEGATE.onBackPressed();
+    }
+
+    @Override
+    public void post(Runnable runnable) {
+        DELEGATE.post(runnable);
     }
 }

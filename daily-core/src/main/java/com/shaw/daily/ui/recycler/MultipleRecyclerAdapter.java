@@ -1,9 +1,9 @@
 package com.shaw.daily.ui.recycler;
 
-import android.support.annotation.Nullable;
-import android.support.transition.Visibility;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.annotation.Nullable;
+import androidx.transition.Visibility;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.ImageView;
 

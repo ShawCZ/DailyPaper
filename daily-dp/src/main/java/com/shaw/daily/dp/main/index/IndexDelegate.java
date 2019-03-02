@@ -1,27 +1,23 @@
 package com.shaw.daily.dp.main.index;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.AppCompatTextView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
 import com.joanzapata.iconify.widget.IconTextView;
-import com.orhanobut.logger.Logger;
 import com.shaw.daily.delegates.DailyDelegate;
-import com.shaw.daily.delegates.web.route.Router;
 import com.shaw.daily.dp.R;
 import com.shaw.daily.dp.R2;
 import com.shaw.daily.dp.main.Rotuer;
-import com.shaw.daily.ui.recycler.BaseDecoration;
 import com.shaw.daily.ui.recycler.MultipleRecyclerAdapter;
 import com.shaw.daily.ui.refresh.RefreshHandler;
 

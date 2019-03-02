@@ -3,13 +3,11 @@ package com.shaw.daily.delegates.web.route;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
+import androidx.core.content.ContextCompat;
+
 import android.webkit.URLUtil;
 import android.webkit.WebView;
-import android.widget.Toast;
 
-import com.shaw.daily.app.Daily;
 import com.shaw.daily.delegates.DailyDelegate;
 import com.shaw.daily.delegates.web.WebDelegate;
 import com.shaw.daily.delegates.web.WebDelegateImpl;

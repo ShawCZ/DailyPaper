@@ -1,9 +1,9 @@
 package com.shaw.daily.dp.launcher;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.view.View;
 
 import com.shaw.daily.delegates.DailyDelegate;

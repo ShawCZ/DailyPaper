@@ -14,7 +14,7 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="30sp" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/item_theme_add"
         android:layout_width="0dp"
         android:layout_height="match_parent"

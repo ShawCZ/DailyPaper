@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     android:background="@color/we_chat_black">
 
-    <android.support.v7.widget.LinearLayoutCompat
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/navigation_bottom"
         android:orientation="vertical">
 
-        <android.support.v7.widget.LinearLayoutCompat
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/drawer_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             android:layout_marginTop="11dp"
             android:orientation="horizontal">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/drawer_user_avatar"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -27,7 +27,7 @@
                 android:layout_marginRight="13dp"
                 android:src="@drawable/menu_avatar" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/drawer_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,9 +39,9 @@
                 android:text="未登录"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="15sp" />
-        </android.support.v7.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <android.support.v7.widget.LinearLayoutCompat
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -49,7 +49,7 @@
             android:layout_marginTop="26dp"
             android:orientation="horizontal">
 
-            <android.support.v7.widget.LinearLayoutCompat
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/user_collection"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -63,16 +63,16 @@
                     android:textColor="@android:color/darker_gray"
                     android:textSize="20sp" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="25dp"
                     android:layout_height="wrap_content"
                     android:text="收藏"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="10sp" />
 
-            </android.support.v7.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <android.support.v7.widget.LinearLayoutCompat
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/user_message"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -86,15 +86,15 @@
                     android:textColor="@android:color/darker_gray"
                     android:textSize="20sp" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="25dp"
                     android:layout_height="wrap_content"
                     android:text="消息"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="10sp" />
-            </android.support.v7.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <android.support.v7.widget.LinearLayoutCompat
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/daily_setting"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -109,23 +109,23 @@
                     android:textColor="@android:color/darker_gray"
                     android:textSize="20sp" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="25dp"
                     android:layout_height="wrap_content"
                     android:text="设置"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="10sp" />
-            </android.support.v7.widget.LinearLayoutCompat>
-        </android.support.v7.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/navigation_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:paddingLeft="16dp"
             android:paddingRight="26dp" />
-    </android.support.v7.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <LinearLayout
         android:id="@+id/navigation_bottom"

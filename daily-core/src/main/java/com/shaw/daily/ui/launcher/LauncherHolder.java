@@ -1,8 +1,8 @@
 package com.shaw.daily.ui.launcher;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.view.View;
 
 import com.bigkoo.convenientbanner.holder.Holder;

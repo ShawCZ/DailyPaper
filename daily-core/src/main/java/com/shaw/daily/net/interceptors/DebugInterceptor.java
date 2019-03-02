@@ -1,6 +1,6 @@
 package com.shaw.daily.net.interceptors;
 
-import android.support.annotation.RawRes;
+import androidx.annotation.RawRes;
 
 import com.shaw.daily.util.file.FileUtil;
 

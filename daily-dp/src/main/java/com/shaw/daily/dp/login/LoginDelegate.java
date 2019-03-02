@@ -2,15 +2,13 @@ package com.shaw.daily.dp.login;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.Toast;
 
 import com.shaw.daily.delegates.DailyDelegate;
 import com.shaw.daily.dp.R;
