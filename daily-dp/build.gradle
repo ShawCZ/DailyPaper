@@ -28,6 +28,7 @@ android {
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
     api project(':daily-core')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     //bmob-sms ：Bmob单独为短信服务提供的包
     api 'cn.bmob.android:bmob-sms:1.0.1'

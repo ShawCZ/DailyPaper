@@ -58,7 +58,6 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
         init();
 
         keys.put(0,"今日新闻");
-
     }
 
     public static MultipleRecyclerAdapter create(List<MultipleItemEntity> data) {
@@ -85,8 +84,6 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
         return MultipleViewHolder.create(view);
     }
 
-    private MultipleViewHolder mHolder;
-
     @Override
     protected void convert(MultipleViewHolder holder, MultipleItemEntity entity) {
 
@@ -111,11 +108,9 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
                     bannerImages = entity.getField(MultipleFields.BANNERS);
                     bannerTitles = entity.getField(MultipleFields.TITLE);
                     convenientBanner = holder.getView(R.id.banner_recycler_item);
-                    BannerCreator.setDefault(convenientBanner, bannerImages, this);
-                    holder.setText(R.id.banner_title, bannerTitles.get(0));
+                    BannerCreator.setDefault(convenientBanner, bannerImages, bannerTitles,this);
                     convenientBanner.setOnPageChangeListener(this);
                     convenientBanner.setOnItemClickListener(this);
-                    mHolder = holder;
                 }
                 break;
 
@@ -132,7 +127,6 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
     //动态设置banner标题
     @Override
     public void onPageSelected(int position) {
-        mHolder.setText(R.id.banner_title, bannerTitles.get(convenientBanner.getCurrentItem()));
     }
 
     @Override

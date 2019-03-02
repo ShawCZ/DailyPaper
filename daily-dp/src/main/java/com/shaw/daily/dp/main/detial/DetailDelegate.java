@@ -1,5 +1,6 @@
 package com.shaw.daily.dp.main.detial;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -7,11 +8,14 @@ import android.view.View;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.shaw.daily.delegates.BaseNormalDelegate;
 import com.shaw.daily.delegates.DailyDelegate;
 import com.shaw.daily.delegates.web.WebDelegateImpl;
 import com.shaw.daily.dp.R;
 import com.shaw.daily.net.RestClient;
 import com.shaw.daily.net.callback.ISuccess;
+import com.shaw.daily.ui.recycler.RgbValue;
+import com.shaw.daily.util.statusbar.StatusBarUtil;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -24,7 +28,7 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  * Created by shaw on 2017/9/30.
  */
 
-public class DetailDelegate extends DailyDelegate {
+public class DetailDelegate extends BaseNormalDelegate {
 
     private static final String ARG_STORY_ID = "ARG_STORY_ID";
     private int mStoryId = -1;
@@ -56,6 +60,8 @@ public class DetailDelegate extends DailyDelegate {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
+        StatusBarUtil.setStatusBarColor(getProxyActivity(), Color.TRANSPARENT);
+        StatusBarUtil.setRootViewFitsSystemWindows(getProxyActivity(),false);
         RestClient.builder()
                 .url("http://news-at.zhihu.com/api/4/news/" + mStoryId)
                 .success(new ISuccess() {

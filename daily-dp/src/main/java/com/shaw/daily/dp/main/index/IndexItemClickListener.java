@@ -11,6 +11,7 @@ import com.shaw.daily.delegates.DailyDelegate;
 import com.shaw.daily.dp.R;
 import com.shaw.daily.dp.main.Rotuer;
 import com.shaw.daily.dp.main.detial.DetailDelegate;
+import com.shaw.daily.dp.main.detial.ScrollingActivity;
 import com.shaw.daily.dp.main.theme.ThemeListDelegate;
 import com.shaw.daily.ui.recycler.MultipleFields;
 import com.shaw.daily.ui.recycler.MultipleItemEntity;
@@ -55,9 +56,10 @@ public class IndexItemClickListener extends SimpleClickListener {
                 DELEGATE.getSupportDelegate().start(delegate);
                 break;
             case 3:
-                final int storyId = entity.getField(MultipleFields.ID);
-                delegate = DetailDelegate.create(storyId);
-                DELEGATE.getSupportDelegate().start(delegate);
+                DELEGATE.getProxyActivity().startActivity(new Intent( DELEGATE.getProxyActivity(), ScrollingActivity.class));
+//                final int storyId = entity.getField(MultipleFields.ID);
+//                delegate = DetailDelegate.create(storyId);
+//                DELEGATE.getSupportDelegate().start(delegate);
                 break;
             case 4:
                 int themeId = entity.getField(MultipleFields.ID);
